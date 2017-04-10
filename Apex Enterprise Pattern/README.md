@@ -28,6 +28,8 @@ trigger ContactTrigger on Case (before insert) {
 }
 ```
 
+A Service Layer will help you form a clear and strict encapsulation of code implementing business tasks, calculations and processes. All method in the service layer should be static and can be call from any sources (Batch, Javascript Remoting, Apex Rest, Visualforce Controller, ...). 
+
 A log system has also been implemented in the domain layer to handle exceptions within trigger. At the end of the operation for the running domain class, the trigger will insert the log. 
 ```java
 Database.SaveResult[] results = Database.update(contactToUpdate,false);
