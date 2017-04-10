@@ -8,6 +8,7 @@ This repository is dedidcated to SMS employees. It regroups a bunch of cool stuf
 ## Apex Enterprise Pattern ##
 This is providing a further, but more granular, level of code encapsulation and reuse within your application, such as complex validation, defaulting and other logic relating to complex calculation and manipulation. This code aims to provide guidelines as to how you can clearly associate Domain layer code to each of your Custom Objects. Enabling you to further manage effective layering and separation of concerns within your application code base and the benefits that brings ... [Click here to view more](https://github.com/davidbrowaeys/SMS-SFDEV-TOOLKIT/tree/master/Apex%20Enterprise%20Pattern)
 
-## Useful Code ## Click here to view more](https://github.com/davidbrowaeys/SMS-SFDEV-TOOLKIT/tree/master/Useful%Code%20)
+## Useful Code ## 
+Click here to view more](https://github.com/davidbrowaeys/SMS-SFDEV-TOOLKIT/tree/master/Useful%Code%20)
 
 
