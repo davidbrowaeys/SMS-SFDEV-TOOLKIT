@@ -1,4 +1,6 @@
-![alt text](http://www.smsmt.com/hs-fs/hubfs/SMS_Logo-1.png?t=1490163156935&width=300&name=SMS_Logo-1.png "SMS Management & Technology")
+<div style="text-align:right;top: 10px;position: absolute;right: 10px;" markdown="1">
+	<img src="http://www.smsmt.com/hs-fs/hubfs/SMS_Logo-1.png?t=1490163156935&amp;width=300&amp;name=SMS_Logo-1.png"/>
+</div>
 
 # SMS-SFDEV-TOOLKIT
 This repository regroups a bunch of cool stuffs around Salesforce Development and best practices. 
