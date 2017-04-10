@@ -8,12 +8,22 @@ public with sharing class ContactTriggerHandler extends SObjectHandler{
         super();   
     }
     /**
-     * Apply defaults to the records, this is execute before insert
+     * @description Apply defaults to the records, this is always executed before insert
      */
     public override void onApplyDefaults(){
-        for(Contact c :(Contact[]) records) {
+        for (Contact c :(Contact[]) records) {
             if (c.RecordtypeId == objectRecordtypes.get('Student').getRecordTypeId() && String.isBlank(c.Email) == true){
                 c.Email = 'undefined@undefined.com';
+            }
+        }
+    }
+    /**
+     * @description Validate records, this is always executed after insert & after update
+     */
+    public override void onValidate(){
+        for (Contact c :(Contact[]) records) {
+            if (c.AccountId == null){
+                c.addError(Label.ContactWithoutAccount);
             }
         }
     }
