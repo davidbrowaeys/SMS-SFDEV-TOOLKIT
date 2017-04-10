@@ -1,7 +1,7 @@
 ![alt text](http://www.smsmt.com/hs-fs/hubfs/SMS_Logo-1.png?t=1490163156935&width=300&name=SMS_Logo-1.png "SMS Management & Technology")
 
 # Apex Enterprise Pattern #
-This is providing a further, but more granular, level of code encapsulation and reuse within your application, such as complex validation, defaulting and other logic relating to complex calculation and manipulation. This code aims to provide guidelines as to how you can clearly associate Domain layer code to each of your Custom Objects. Enabling you to further manage effective layering and separation of concerns within your application code base and the benefits that brings. The code below is an example of how to use this domain layer with the contact object. 
+This is providing a further, but more granular, level of code encapsulation and reuse within your application, such as complex validation, defaulting and other logic relating to complex calculation and manipulation. This code aims to provide guidelines as to how you can clearly associate Domain layer code to each of your Custom Objects. Enabling you to further manage effective layering and separation of concerns within your application code base and the benefits that brings. The parent layer is defined in the [SObjectHandler](https://github.com/davidbrowaeys/SMS-SFDEV-TOOLKIT/blob/master/Apex%20Enterprise%20Pattern/SObjectHandler.cls) class and contains the main logic of the trigger operations. The code below is an example of how to use this domain layer with the contact object. 
 ```java
 public with sharing class ContactTriggerHandler extends SObjectHandler{
 
@@ -11,9 +11,11 @@ public with sharing class ContactTriggerHandler extends SObjectHandler{
 
 	public override void onBeforeInsert(){
 		//add code here, ideally this will call the contact service layer
+		ContactService.createStudentMemberCards((Contact[]) records);
 	}
-	public override void onAfterUpdate(Map <Id,SObject> oldMap) 
+	public override void onBeforeUpdate(Map <Id,SObject> oldMap) 
 		//add code here, ideally this will call the contact service layer
+		ContactService.upgradeContacts((Contact[]) records);
 	}
 }
 ```
