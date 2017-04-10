@@ -1,8 +1,37 @@
 /**
 * @author davidbrowaeys[SMS]
-* @description Utility that deals with cryptographic functions.
+* @description Utility class that deals with cryptographic functions.
 */
 public abstract class CryptoUtils {
+	/**
+	 * @description Encrypte data using an encryption key defined in a Label
+	 * @usage EncodingUtil.urlEncode(CryptoUtils.encryptedData(record.Id),'UTF-8');
+	*/	
+	public static String encryptedData(String value){
+       Blob cryptoKey = Blob.valueOf(Label.Encryption_Key);
+	        
+        // Generate the data to be encrypted.
+        Blob data = Blob.valueOf(value);
+        // Encrypt the data and have Salesforce.com generate the initialization vector
+        Blob encryptedData = Crypto.encryptWithManagedIV('AES128', cryptoKey,data);
+        
+        return Encodingutil.base64Encode(encryptedData);
+    }
+    /**
+	 * @description Decrypte data using an encryption key defined in a Label
+	 * @usage String contactId = CryptoUtil.decryptedData(encryptedContactId);
+	*/
+    public static String decryptedData(String value){
+        Blob cryptoKey = Blob.valueOf(Label.Encryption_Key);
+        
+        Blob data = EncodingUtil.base64Decode(value);
+        
+        // Decrypt the data - the first 16 bytes contain the initialization vector
+        Blob decryptedData = Crypto.decryptWithManagedIV('AES128', cryptoKey, data);
+        
+        // Decode the decrypted data for subsequent use
+        return decryptedData.toString();
+    }
 	/** 
 	 * @description Field separator for the hash. 
 	*/
@@ -65,34 +94,4 @@ public abstract class CryptoUtils {
 	public static Long getRandom(Long min, Long max) {
 		return Math.abs(Math.mod(Crypto.getRandomLong(), max - min + 1)) + min;
 	}
-    /**
-	 * @description Encrypte data using an encryption key defined in a Label
-	 * @usage EncodingUtil.urlEncode(CryptoUtils.encryptedData(record.Id),'UTF-8');
-	*/	
-	public static String encryptedData(String value){
-       Blob cryptoKey = Blob.valueOf(Label.Encryption_Key);
-	        
-        // Generate the data to be encrypted.
-        Blob data = Blob.valueOf(value);
-        // Encrypt the data and have Salesforce.com generate the initialization vector
-        Blob encryptedData = Crypto.encryptWithManagedIV('AES128', cryptoKey,data);
-        
-        return Encodingutil.base64Encode(encryptedData);
-    }
-    /**
-	 * @description Decrypte data using an encryption key defined in a Label
-	 * @usage String contactId = CryptoUtil.decryptedData(encryptedContactId);
-	*/
-    public static String decryptedData(String value){
-        Blob cryptoKey = Blob.valueOf(Label.Encryption_Key);
-        
-        Blob data = EncodingUtil.base64Decode(value);
-        
-        // Decrypt the data - the first 16 bytes contain the initialization vector
-        Blob decryptedData = Crypto.decryptWithManagedIV('AES128', cryptoKey, data);
-        
-        // Decode the decrypted data for subsequent use
-        return decryptedData.toString();
-    }
-
 }
