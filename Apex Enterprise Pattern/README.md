@@ -12,6 +12,9 @@ public with sharing class ContactTriggerHandler extends SObjectHandler{
 	public override void onBeforeInsert(){
 		//add code here, ideally this will call the contact service layer
 	}
+	public override void onAfterUpdate(Map <Id,SObject> oldMap) 
+		//add code here, ideally this will call the contact service layer
+	}
 }
 ```
 The trigger code should be as simple as calling the domain layer for the Contact layer. 
@@ -27,7 +30,5 @@ Database.SaveResult[] results = Database.update(contactToUpdate,false);
 SystemLogger log = new SystemLogger('ContactService','Contact','upgradeContact');
 log.addDatabaseSaveResult(results, 'Contact', contactToUpdate);
 ```
-
-[Click here](https://github.com/davidbrowaeys/SMS-SFDEV-TOOLKIT/tree/master/Apex%20Enterprise%20Pattern)
 
 
