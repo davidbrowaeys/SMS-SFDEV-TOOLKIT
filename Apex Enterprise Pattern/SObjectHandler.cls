@@ -42,14 +42,14 @@ public virtual with sharing class SObjectHandler
     /**
     * Return the System log represented by this domain class
     **/
-    public SystemLogger log {get; set;}
+    public SystemLog log {get; set;}
     /**
      * Constructs the domain class with the data on which to apply the behaviour implemented within the sObject including Record Type
      *
      **/
     public SObjectHandler()
     {
-        records = Trigger.isDelete == false ? Trigger.new.clone() : Trigger.old.clone(); 
+        records = Trigger.new.clone(); 
         
         objectType = records.getSObjectType();
 
@@ -57,11 +57,11 @@ public virtual with sharing class SObjectHandler
 
         objectRecordtypes = objectDescribe.getRecordTypeInfosByName();
 
-        log = new SystemLogger(objectType+'Trigger');
+        log = new SystemLog(objectType+'Trigger');
         
         triggerHandler();
 
-        log.insert();
+        log.insertLog();
     }
     /**
      * Calls the applicable override methods such as beforeInsert, beforeUpdate etc. based on a Trigger context

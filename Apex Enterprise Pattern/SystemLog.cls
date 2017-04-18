@@ -6,7 +6,7 @@
  * log.addDatabaseSaveResult(results, 'Contact', contactToUpdate);
  * log.insertExceptionLogs();
  */
-public with sharing class SystemLogger
+public with sharing class SystemLog
 {
 	public enum Severity {INFO, WARNING, ERROR, FATAL}
 
@@ -16,61 +16,59 @@ public with sharing class SystemLogger
     
     ApplicationLog__c[] log;
 
-    public SystemLogger(String proccessName) 
+    public SystemLog(String proccessName) 
     {
-		SystemLogger(proccessName,null,null);
+		this(proccessName,null,null);
 	}
 
-	public SystemLogger(String proccessName, String functionName) 
+	public SystemLog(String processName, String functionName) 
     {
-		SystemLogger(proccessName,functionName,null);
+		this(processName,functionName,null);
 	}
 
-	public SystemLogger(String proccessName, String functionName, String batchId) 
+	public SystemLog(String processName, String functionName, String batchId) 
 	{
 		this.log = new ApplicationLog__c[0];
-		this.proccessName = proccessName;
+		this.processName = processName;
 		this.functionName = functionName;
 		this.batchID = batchID;
 	}
 
-	public void addMessage(String errorNo, String errorDescription, String severity)
+	public void addMessage(String errorNo, String errorDescription, Severity severity)
 	{
         this.add(new ApplicationLog__c(
-			Process_Name__c = proccessName,
+			Process_Name__c = processName,
 	        Batch_ID__c = batchId,
 	        Function_Name__c = functionName,
 	        Error_No__c = errorNo,
 	        Error_Description__c = errorDescription,
-	        Severity__c = severity));
+	        Severity__c = severity.name()));
 	}
 
-	public void addObjectMessage(String objectName, String recordId, String errorNo, String errorDescription, String severity)
+	public void addObjectMessage(String objectName, String recordId, String errorNo, String errorDescription, Severity severity)
 	{
         this.add(new ApplicationLog__c(
-			Process_Name__c = proccessName,
+			Process_Name__c = processName,
 	        Record_Id__c = recordId,
 	        Object_Name__c = objectName,
 	        Batch_ID__c = batchId,
 	        Function_Name__c = functionName,
 	        Error_No__c = errorNo,
 	        Error_Description__c = errorDescription,
-	        Severity__c = severity));
+	        Severity__c = severity.name()));
 	}
 
-	public void addHttpMessage(String httpRequest, String httpResponse, String errorNo, String errorDescription, String severity)
+	public void addHttpMessage(String httpRequest, String httpResponse, String errorNo, String errorDescription, Severity severity)
 	{
         this.add(new ApplicationLog__c(
-			Process_Name__c = proccessName,
-	        Record_Id__c = recordId,
-	        Object_Name__c = objectName,
+			Process_Name__c = processName,
 	        Batch_ID__c = batchId,
 	        Function_Name__c = functionName,
 	        Error_No__c = errorNo,
 	        Error_Description__c = errorDescription,
 	        Request_Body__c = httpRequest,
         	Response_Body__c = httpResponse,
-	        Severity__c = severity));
+	        Severity__c = severity.name()));
 	}
 
 	public void addDatabaseSaveResult(String objectName, Database.SaveResult[] results, SObject[] records)
@@ -103,7 +101,7 @@ public with sharing class SystemLogger
 		            if (errNo.length() > 50) {
 		            	errNo = errNo.substring(0,50);
 		            }
-		            addObjectMessage(rec.id, errNo,'id=' + rec.id + ',Message:' +  err.getMessage() + 'Fields:' + err.getFields(), Severity.ERROR);
+		            addObjectMessage(objectName, rec.id, errNo,'id=' + rec.id + ',Message:' +  err.getMessage() + 'Fields:' + err.getFields(), Severity.ERROR);
 		        }
 		    }
 		}
