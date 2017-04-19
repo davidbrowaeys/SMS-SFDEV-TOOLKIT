@@ -1,0 +1,17 @@
+<!--
+    @Author      :  SMS Management & Technology
+    @Name        :  MultipleExtensionPage
+    @Date        :  19/04/2017
+    @Description :  Sample visualforce page to demonstrate interaction between extensions 
+--> 
+<apex:page standardController="Account" extensions="ExtensionOne,ExtensionTwo" id="page">
+    <apex:pageBlock title="Account Details" id="pgBlock">
+        <apex:form id="form">
+            <apex:pageBLockSection title="Contact Information" collapsible="false" id="pbSection">
+                <apex:inputField value="{!Account.Name}"/>
+                <apex:inputField value="{!Account.Phone}"/>
+            </apex:pageBLockSection>
+            <apex:commandButton value="Debug" action="{!debugAccountInfo}" reRender="pbSection"/>
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>
