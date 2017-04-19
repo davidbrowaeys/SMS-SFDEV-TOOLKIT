@@ -48,9 +48,10 @@ public abstract class QueryUtils {
 	/**
 	* @description Perform a SOSL quick search, this doesn't count against QUERY_ROW governor limit. 
 	* However it will always return a maximum of 2000 records and a maximum of 20 SOSL queries per transaction. 
-	* @usage QueryUtils.find('albert', new Map<String,String[]>{ 'Account' 	=> new String[]{'Id', 'Name'},
-	*															 'Contact'  => new String[]{'Id', 'FirstName', 'LastName', 'AccountId'},
-	*															 'Lead'  	=> new String[]{'Id', 'FirstName', 'LastName'}});
+	* @usage QueryUtils.find('albert', new Map<String,String[]>{
+	*             'Account' => new String[]{'Id', 'Name'},
+	*             'Contact' => new String[]{'Id', 'FirstName', 'LastName', 'AccountId'},
+	*             'Lead'    => new String[]{'Id', 'FirstName', 'LastName'}});
 	*/
 	public static List<List<SObject>> find(String searchTerm, Map <String,String[]> selectObjects){
 		String[] objectQuery = new String[0];
