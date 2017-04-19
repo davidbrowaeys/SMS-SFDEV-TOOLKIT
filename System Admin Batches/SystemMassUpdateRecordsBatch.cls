@@ -34,5 +34,7 @@ global class SystemMassUpdateRecordsBatch implements Database.Batchable<sObject>
    		if(!Test.isRunningTest()) update scope;
 	}
 	
-	global void finish(Database.BatchableContext BC) {}
+	global void finish(Database.BatchableContext BC) {
+		System.debug('EOB >> '+query);
+	}
 }
