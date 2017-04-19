@@ -8,12 +8,20 @@ Some cool apex batches that can be used by system administrator to facilitate so
 ## Mass Update Records ##
 ```java
 Database.executeBatch(new SystemMassUpdateRecordsBatch(
-			'SELECT Id, Status__c, Account WHERE Status__c = \'Inactive'\',
+			'SELECT Id, Status__c FROM Account WHERE Status__c = \'Inactive'\',
 			new Map<String, Object>{'Status__c' => 'Active'}));
+```
+Advanced use of the batch, you can now update records from other fields, or parent fields
+```java
+Database.executeBatch(new SystemMassUpdateRecordsBatch(
+			'SELECT Id, Status__c, Account.Business_Email__c FROM Contact WHERE Status__c = \'Inactive'\',
+			new Map<String, Object>{'Status__c' => 'Active',
+									'Phone' => 'Mobile',
+									'Email' => 'pfd::Account.Business_Email__c'}));
 ```
 ## Mass Delete Records ##
 ```java
 Database.executeBatch(new SystemMassDeleteRecordsBatch(
-			'SELECT Id, Status__c, Account WHERE Status__c = \'Inactive'\',
+			'SELECT Id, Status__c FROM Account WHERE Status__c = \'Inactive'\',
 			true));
 ```
