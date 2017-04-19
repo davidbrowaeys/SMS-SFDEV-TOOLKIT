@@ -6,12 +6,14 @@
 Some cool apex batches that can be used by system administrator to facilitate some admin tasks. This can be execute in the Developer Console through the Execute Anonymous features.
 
 ## Mass Update Records ##
+This batch allows to mass update records for selected objects passing a query and a list of field to updates. 
+### Usage ###
 ```java
 Database.executeBatch(new SystemMassUpdateRecordsBatch(
 			'SELECT Id, Status__c FROM Account WHERE Status__c = \'Inactive'\',
 			new Map<String, Object>{'Status__c' => 'Active'}));
 ```
-Advanced use of the batch, you can now update records from other fields, or parent fields
+You can now update records from other fields, or parent fields
 ```java
 Database.executeBatch(new SystemMassUpdateRecordsBatch(
 			'SELECT Id, Status__c, Account.Business_Email__c FROM Contact WHERE Status__c = \'Inactive'\',
@@ -20,8 +22,9 @@ Database.executeBatch(new SystemMassUpdateRecordsBatch(
 									'Email' => 'pfd::Account.Business_Email__c'}));
 ```
 ## Mass Delete Records ##
+This batch allows to mass delete records and provide the options to empty records from recycle bin
+### Usage ###
 ```java
 Database.executeBatch(new SystemMassDeleteRecordsBatch(
-			'SELECT Id, Status__c FROM Account WHERE Status__c = \'Inactive'\',
-			true));
+			'SELECT Id, Status__c FROM Account WHERE Status__c = \'Inactive'\', true));
 ```
