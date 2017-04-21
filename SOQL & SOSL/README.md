@@ -19,8 +19,8 @@ List<Account> accList = QueryUtils.selectMapObject(
 ```
 If ``selectFields`` is null, it will select ALL field of the select object
 ```java
-Qu`eryUtils.selectMapObject('Account',new Set<Id>{'001N000001AvY5n'});
-``
+QueryUtils.selectMapObject('Account',new Set<Id>{'001N000001AvY5n'});
+```
 
 ### Retrieve map of records by id ###
 ```java
