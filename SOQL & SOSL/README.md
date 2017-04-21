@@ -17,7 +17,7 @@ List<Account> accList = QueryUtils.selectMapObject(
             new String[]{'Name','Phone'},
             new Set<Id>{'001N000001AvY5n'});
 ```
-If ``javaselectFields`` is null, it will select ALL field of the select object
+If ``selectFields`` is null, it will select ALL field of the select object
 ```java
 Qu`eryUtils.selectMapObject('Account',new Set<Id>{'001N000001AvY5n'});
 ``
@@ -33,7 +33,8 @@ Map<Id,SObject[]> results = QueryUtils.selectMapChildObject(
         new String[]{'FirstName','LastName'},
         'AccountId',
         new Set<Id>{'001N000001AvY5n'});
-``
+```
+
 ## SOSL ##
 SOSL is a faster way to access database as it always use index field. SOSL doesn't count toward the query row, but it has it's own limit. It's good to use in the event you don't know what you are searching for and in which objects. 
 
