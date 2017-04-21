@@ -9,8 +9,7 @@ This repository is dedicated to SMS employees. It regroups a bunch of cool stuff
 This is providing a further, but more granular, level of code encapsulation and reuse within your application, such as complex validation, defaulting and other logic relating to complex calculation and manipulation. This code aims to provide guidelines as to how you can clearly associate Domain layer code to each of your Custom Objects. Enabling you to further manage effective layering and separation of concerns within your application code base and the benefits that brings ... [Click here to view more](https://github.com/davidbrowaeys/SMS-SFDEV-TOOLKIT/tree/master/Apex%20Enterprise%20Pattern)
 
 ## SOQL & SOSL ## 
-This section is aiming to provide an easy and dyanimic way to use SOQL and SOSL. You will find methods that will help you to get a list of children group by parent in a map, methods to use FIND and suggestions. 
-[Click here to view more](https://github.com/davidbrowaeys/SMS-SFDEV-TOOLKIT/tree/master/SOQL%20%26%20SOSL)
+Are you always rebuilding SQL query over and over in your code. You never thought maybe I could find an easy way to perform SQL. This section is for you and aims to provide a very dynamic way to use SOQL and SOSL [Click here to view more](https://github.com/davidbrowaeys/SMS-SFDEV-TOOLKIT/tree/master/SOQL%20%26%20SOSL)
 
 
 ## System Admin Batches ## 
