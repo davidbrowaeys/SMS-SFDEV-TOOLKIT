@@ -29,20 +29,21 @@ global class SystemMassUpdateRecordsBatch implements Database.Batchable<sObject>
    	global void execute(Database.BatchableContext BC, List<sObject> scope) {
    		for(sObject obj : scope){
    			for(String fieldName : fieldValues.keySet()){
-   				if (fieldValues.get(fieldName) != null && 
-   					String.valueOf(fieldValues.get(fieldName)).startsWith('fd::')){
-   					String valueFrom = String.valueOf(fieldValues.get(fieldName)).split('fd::'); //field to get the value from
+   				if (fieldValues.get(fieldName) != null && String.valueOf(fieldValues.get(fieldName)).startsWith('fd::')){
+   					String valueFrom = String.valueOf(fieldValues.get(fieldName)).split('fd::')[1]; //field to get the value from
    					obj.put(fieldName, obj.get(valueFrom));
-   				else{
-   					if (fieldValues.get(fieldName) != null && 
-   					String.valueOf(fieldValues.get(fieldName)).startsWith('pfd::')){
-   					String valueFrom = String.valueOf(fieldValues.get(fieldName)).split('pfd::');
-   					String parentName = valueFrom.split('.')[0];	//parent relationship name
-   					String parentField = valueFrom.split('.')[0];	//parent field name 
-   					obj.put(fieldName, obj.getSObject(parentName).get(parentField));
-   				}else{
-   					obj.put(fieldName, fieldValues.get(fieldName));	
-   				}
+				}
+				else{
+   					if (fieldValues.get(fieldName) != null && String.valueOf(fieldValues.get(fieldName)).startsWith('pfd::')){
+						String valueFrom = String.valueOf(fieldValues.get(fieldName)).split('pfd::')[1];
+						String parentName = valueFrom.split('.')[0];	//parent relationship name
+						String parentField = valueFrom.split('.')[0];	//parent field name 
+						obj.put(fieldName, obj.getSObject(parentName).get(parentField));
+					}
+					else{
+						obj.put(fieldName, fieldValues.get(fieldName));	
+					}
+				}
    			}
    		}
 
