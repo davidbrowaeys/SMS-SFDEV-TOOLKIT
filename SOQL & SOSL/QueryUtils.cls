@@ -37,10 +37,10 @@ public abstract class QueryUtils {
 
 		Map<Id,List<SObject>> tmp = new Map<Id,List<SObject>>();
 		for(SObject obj : Database.query(objectQuery)){
-			if(tmp.get(obj.get(parentFieldName)) == null){
-				tmp.put(obj.get(parentFieldName), new SObject[0])
-			}
-			tmp.get(obj.get(parentFieldName)).add(obj);
+			if(tmp.get((Id)obj.get(parentFieldName)) == null){
+                tmp.put((Id)obj.get(parentFieldName), new SObject[0]);
+            }
+            tmp.get((Id)obj.get(parentFieldName)).add(obj);
 		}
 		return tmp;
 	}
