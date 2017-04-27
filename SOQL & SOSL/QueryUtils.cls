@@ -44,6 +44,19 @@ public abstract class QueryUtils {
 		}
 		return tmp;
 	}
+	public SObject[] selectMapChildObject(String objectName, String[] selectFields, String parentFieldName, Set <Id> idSet)
+	{
+		if (selectFields == null){
+			selectFields = new String[0];
+			selectFields.addAll(User.sObjectType.getDescribe().fields.getMap().keySet());
+		}
+		String objectQuery = 
+			String.format('select {0} from {1} where {2} in :idSet', 
+				new List<String> { 
+			    String.join(selectFields, ','), objectName, parentFieldName });
+
+		return Database.query(objectQuery);
+	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/**
 	* @description Perform a SOSL quick search, this doesn't count against QUERY_ROW governor limit. 
