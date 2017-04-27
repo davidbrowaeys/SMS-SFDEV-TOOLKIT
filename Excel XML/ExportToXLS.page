@@ -64,11 +64,15 @@
  	</Styles>
  	<!--CELL RANGE SELECTION-->
  	<Names>
-  		<NamedRange ss:Name="Amount_Column" ss:RefersTo="=Opportunities!R2C3:R{!oppSize + 1}C3"/>
+  		<!--OPPORTUNITIES REFERENCES-->
   		<NamedRange ss:Name="Name_Column" ss:RefersTo="=Opportunities!R2C1:R{!oppSize + 1}C1"/>
+		<NamedRange ss:Name="Stage_Column" ss:RefersTo="=Opportunities!R2C2:R{!oppSize + 1}C2"/>
+  		<NamedRange ss:Name="Amount_Column" ss:RefersTo="=Opportunities!R2C3:R{!oppSize + 1}C3"/>
   		<NamedRange ss:Name="Percentage_of_Total_Column" ss:RefersTo="=Opportunities!R2C4:R{!oppSize + 1}C4"/>
-  		<NamedRange ss:Name="Stage_Column" ss:RefersTo="=Opportunities!R2C2:R{!oppSize + 1}C2"/>
   		<NamedRange ss:Name="Total_Amount_Cell" ss:RefersTo="=Opportunities!R{!oppSize + 2}C3"/>
+  		<!--CASES REFERENCES-->
+  		<NamedRange ss:Name="CaseNum_Column" ss:RefersTo="=Cases!R2C1:R{!caseSize + 1}C1"/>
+  		<NamedRange ss:Name="CasePriority_Column" ss:RefersTo="=Cases!R2C2:R{!caseSize + 1}C2"/>
  	</Names>
  	<!--TAB1-->
  	<Worksheet ss:Name="Opportunities">
@@ -105,6 +109,7 @@
 			</Row>
 			<Row ss:Height="14"/>
   		</Table>
+  		<!-- OTHER OPTIONS -->
   		<WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    			<PageLayoutZoom>0</PageLayoutZoom>
    			<Selected/>
@@ -120,7 +125,26 @@
    			<ProtectScenarios>False</ProtectScenarios>
   		</WorksheetOptions>
 	</Worksheet>
+	<!--TAB1-->
 	<Worksheet ss:Name="Cases">
+		<Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="13" x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="65">
+			<Column ss:AutoFitWidth="0" ss:Width="209"/>
+			<Column ss:AutoFitWidth="0" ss:Width="132"/>
+			<Column ss:AutoFitWidth="0" ss:Width="96"/>
+   			<Column ss:AutoFitWidth="0" ss:Width="124"/>
+      		<!-- HEAFDER-->
+			<Row ss:Height="16">
+				<Cell ss:StyleID="s68"><Data ss:Type="String">Cases Number</Data></Cell>
+				<Cell ss:StyleID="s68"><Data ss:Type="String">Priority</Data></Cell>
+			</Row>
+			<!-- CONTENT-->
+   			<apex:repeat value="{!cases}" var="item">
+   			<Row><!--LINK EACH CELL TO CELL RANGE SELECTION (NamedCell)-->
+				<Cell ><Data ss:Type="String">{!item.CaseNumber}</Data><NamedCell ss:Name="CaseNum_Column"/></Cell>
+				<Cell ><Data ss:Type="String">{!item.Priority}</Data><NamedCell ss:Name="CasePriority_Column"/></Cell>
+   			</Row>
+			</apex:repeat>
+  		</Table>
 	</Worksheet>
 </Workbook>
 </apex:page>
