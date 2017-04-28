@@ -63,6 +63,38 @@ The code below define a worksheet with 3 columns
 </ss:Worksheet>
 ```
 
+### Adding Data ###
+```xml
+<Worksheet ss:Name="Opportunities">
+  	<ss:Table>
+		<ss:Row>
+            <ss:Cell>
+                <ss:Data ss:Type=”String”>Opportunity Name</ss:Data>
+            </ss:Cell>
+            <ss:Cell>
+                <ss:Data ss:Type=”String”>Amount</ss:Data>
+            </ss:Cell>
+            <ss:Cell>
+                <ss:Data ss:Type=”String”>Stage</ss:Data>
+            </ss:Cell>
+        </ss:Row>
+		<apex:repeat value="{!opportunities}" var="opp">
+			<Row>
+				<Cell>
+					<Data ss:Type="String">{!HTMLENCODE(opp.Name)}</Data>
+				</Cell>
+				<Cell>
+					<Data ss:Type="Number">{!opp.Amount}</Data>
+				</Cell>
+				<Cell>
+					<Data ss:Type="String">{!HTMLENCODE(opp.StageName)}</Data>
+				</Cell>
+			</Row>
+		</apex:repeat>
+	</Table>
+</Worksheet>
+```
+
 ### Define a bit of style ###
 ```xml
 <Styles>
