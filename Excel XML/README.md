@@ -11,6 +11,21 @@ Before to start, there are 2 main issues you need to be aware of when you develo
 
 Another thing I found very difficult when developping XML in Visualforce is the fact there is no proper way to debug. I would strongly recommend you to go one step at a time before you get lost in your code.  
 
+### Setup Visualforce ###
+The code below define the basic config for your VF page where your contentType must be set as `application/vnd.ms-excel#filename.xls`
+```xml
+<apex:page id="pg" standardStylesheets="false" controller="ExportToXLSController" 
+    contenttype="application/vnd.ms-excel#TestExport_{!TODAY()}.xls">
+{!xmlheader}
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+</Workbook>
+</apex:page>
+```
+
 ### Define document properties ###
 ```xml
 <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
