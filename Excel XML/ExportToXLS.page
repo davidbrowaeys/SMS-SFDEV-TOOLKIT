@@ -91,8 +91,8 @@
 			<!-- CONTENT-->
    			<apex:repeat value="{!opportunities}" var="opp">
    			<Row><!--LINK EACH CELL TO CELL RANGE SELECTION (NamedCell)-->
-				<Cell ><Data ss:Type="String">{!opp.Name}</Data><NamedCell ss:Name="Name_Column"/></Cell>
-				<Cell ><Data ss:Type="String">Closed Won</Data><NamedCell ss:Name="Stage_Column"/></Cell>
+				<Cell ><Data ss:Type="String">{!HTMLENCODE(opp.Name)}</Data><NamedCell ss:Name="Name_Column"/></Cell>
+				<Cell ><Data ss:Type="String">{!HTMLENCODE(opp.StageName)}</Data><NamedCell ss:Name="Stage_Column"/></Cell>
 				<Cell ><Data ss:Type="Number">{!opp.Amount}</Data><NamedCell ss:Name="Amount_Column"/></Cell>
 				<Cell ss:StyleID="s75" ss:Formula="=IFERROR(RC[-1]/Total_Amount_Cell,0)">
 					<Data ss:Type="Number"></Data>
@@ -125,7 +125,7 @@
    			<ProtectScenarios>False</ProtectScenarios>
   		</WorksheetOptions>
 	</Worksheet>
-	<!--TAB1-->
+	<!--TAB2-->
 	<Worksheet ss:Name="Cases">
 		<Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="13" x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="65">
 			<Column ss:AutoFitWidth="0" ss:Width="209"/>
