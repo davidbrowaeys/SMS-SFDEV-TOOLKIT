@@ -18,4 +18,8 @@ Some cool apex batches that can be used by system administrator to facilitate so
 ## Excel XML with Visualforce ##
 Until now, when you needed to export data into Excel, you probably have been creating viaulforce render as CSV. But at the end of the day, it's just a html page render as csv with a lot of limitations. Well here is a nice solution to create real Excel spreadsheet by using Excel XML. You will be able to create complex and real spreadsheet like you never did before in Visualforce and bring your skills to another level. It seems very complex to build but once you get the trick it's pretty cool. [Click here to view more](https://github.com/davidbrowaeys/SMS-SFDEV-TOOLKIT/tree/master/Excel%20XML)
 
+## Lightning ## 
+This is pretty new for everyone. We will try to come up with some lightning template and reusable lightning components. [Click here to view more](https://github.com/davidbrowaeys/SMS-SFDEV-TOOLKIT/tree/master/Lightning/Lightning%20Layout%20Template)
+
+
 
