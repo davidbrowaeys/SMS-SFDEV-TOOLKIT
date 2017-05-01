@@ -1,0 +1,150 @@
+<aura:application extends="force:slds">
+	<!--HEADER FOR LIST VIEW-->
+	<div class="slds-page-header slds-page-header--object-home">
+		<div class="slds-grid">
+			<div class="slds-col slds-has-flexi-truncate">
+				<div class="slds-media slds-no-space slds-grow">
+					<div class="slds-media__figure">
+						<c:svgIcon  svgPath="/img/slds-icons/v7.6.0/standard-sprite/svg/symbols.svg#opportunity" 
+											category="standard" 
+											size="medium" 
+											name="user"></c:svgIcon>
+					</div>
+					<div class="slds-media__body">
+						<p class="slds-text-title--caps slds-line-height--reset">Catalogue</p>
+						<h1 class="slds-page-header__title slds-p-right--x-small">
+						<button class="slds-button slds-button--reset slds-type-focus slds-truncate" aria-haspopup="true" title="this should match My Leads">
+							<span class="slds-grid slds-has-flexi-truncate slds-grid--vertical-align-center">
+								<span class="slds-truncate">All Products</span>
+								<c:svgIcon 	svgPath="/img/slds-icons/v7.6.0/utility-sprite/svg/symbols.svg#down" 
+											category="utility" 
+											class="slds-button__icon slds-button__icon--right slds-no-flex" 
+											size="small" 
+											name="down" ></c:svgIcon>
+							</span>
+						</button>
+					</h1>
+				</div>
+			</div>
+		</div>
+		<div class="slds-col slds-no-flex slds-grid slds-align-top slds-p-bottom--xx-small">
+			<div class="slds-button-group" role="group">
+				<button class="slds-button slds-button--neutral">New Order</button>
+					<div class="slds-button--last">
+						<button class="slds-button slds-button--icon-border-filled" aria-haspopup="true" title="More Actions">
+							<c:svgIcon 	svgPath="/img/slds-icons/v7.6.0/utility-sprite/svg/symbols.svg#down" 
+												category="utility" 
+												class="slds-button__icon" 
+												containerClass="slds-button slds-button--icon-border-filled" 
+												size="small" 
+												name="down" 
+												assistiveText="More Actions"/>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="slds-grid">
+			<div class="slds-col slds-align-bottom">
+				<p class="slds-text-body--small">10 items • Sorted by Name</p>
+			</div>
+			<div class="slds-col slds-no-flex slds-grid slds-align-bottom">
+				<div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-m-left--x-small" aria-expanded="false">
+					<button class="slds-button slds-button--icon-more" aria-haspopup="true" title="List View Controls">
+						<c:svgIcon 	svgPath="/img/slds-icons/v7.6.0/utility-sprite/svg/symbols.svg#settings" 
+									category="utility" 
+									class="slds-button__icon" 
+									size="small" 
+									name="settings" />
+						<c:svgIcon 	svgPath="/img/slds-icons/v7.6.0/utility-sprite/svg/symbols.svg#down" 
+									category="utility" 
+									class="slds-button__icon slds-button__icon--x-small" 
+									size="small" 
+									name="down" 
+									assistiveText="List View Controls"/>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Display a big board of box, each box could contain a card for example to make it looks like a product catalogue(https://www.lightningdesignsystem.com/components/cards/)-->
+	<div class="slds-grid slds-wrap slds-grid--pull-padded slds-grid--vertical-align-center slds-grid--align-center slds-grid--vertical-stretch">
+		<div class="slds-m-around--small slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12 ">
+			<article class="slds-card slds-card--narrow">
+    			<div class="slds-card__header"><img src="https://media.carphonewarehouse.com/is/image/cpw2/galaxy-s8BLACK?$xl-standard$"/></div>
+    			<div class="slds-card__body">Samsung Galaxy S8 - Midnight Black</div>
+    			<div class="slds-card__footer"><strong>$1199</strong></div>
+  			</article>
+		</div>
+		<div class="slds-m-around--small slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12 ">
+			<article class="slds-card slds-card--narrow">
+    			<div class="slds-card__header"><img src="https://media.carphonewarehouse.com/is/image/cpw2/galaxy-s8BLACK?$xl-standard$"/></div>
+    			<div class="slds-card__body">Samsung Galaxy S8 - Midnight Black</div>
+    			<div class="slds-card__footer"><strong>$1199</strong></div>
+  			</article>
+		</div>
+		<div class="slds-m-around--small slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12 ">
+			<article class="slds-card slds-card--narrow">
+    			<div class="slds-card__header"><img src="https://media.carphonewarehouse.com/is/image/cpw2/galaxy-s8BLACK?$xl-standard$"/></div>
+    			<div class="slds-card__body">Samsung Galaxy S8 - Midnight Black</div>
+    			<div class="slds-card__footer"><strong>$1199</strong></div>
+  			</article>
+		</div>
+		<div class="slds-m-around--small slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12 ">
+			<article class="slds-card slds-card--narrow">
+    			<div class="slds-card__header"><img src="https://media.carphonewarehouse.com/is/image/cpw2/galaxy-s8BLACK?$xl-standard$"/></div>
+    			<div class="slds-card__body">Samsung Galaxy S8 - Midnight Black</div>
+    			<div class="slds-card__footer"><strong>$1199</strong></div>
+  			</article>
+		</div>
+		<div class="slds-m-around--small slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12 ">
+			<article class="slds-card slds-card--narrow">
+    			<div class="slds-card__header"><img src="https://media.carphonewarehouse.com/is/image/cpw2/galaxy-s8BLACK?$xl-standard$"/></div>
+    			<div class="slds-card__body">Samsung Galaxy S8 - Midnight Black</div>
+    			<div class="slds-card__footer"><strong>$1199</strong></div>
+  			</article>
+		</div>
+		<div class="slds-m-around--small slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12 ">
+			<article class="slds-card slds-card--narrow">
+    			<div class="slds-card__header"><img src="https://media.carphonewarehouse.com/is/image/cpw2/galaxy-s8BLACK?$xl-standard$"/></div>
+    			<div class="slds-card__body">Samsung Galaxy S8 - Midnight Black</div>
+    			<div class="slds-card__footer"><strong>$1199</strong></div>
+  			</article>
+		</div>
+		<div class="slds-m-around--small slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12 ">
+			<article class="slds-card slds-card--narrow">
+    			<div class="slds-card__header"><img src="https://media.carphonewarehouse.com/is/image/cpw2/galaxy-s8BLACK?$xl-standard$"/></div>
+    			<div class="slds-card__body">Samsung Galaxy S8 - Midnight Black</div>
+    			<div class="slds-card__footer"><strong>$1199</strong></div>
+  			</article>
+		</div>
+		<div class="slds-m-around--small slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12 ">
+			<article class="slds-card slds-card--narrow">
+    			<div class="slds-card__header"><img src="https://media.carphonewarehouse.com/is/image/cpw2/galaxy-s8BLACK?$xl-standard$"/></div>
+    			<div class="slds-card__body">Samsung Galaxy S8 - Midnight Black</div>
+    			<div class="slds-card__footer"><strong>$1199</strong></div>
+  			</article>
+		</div>
+		<div class="slds-m-around--small slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12 ">
+			<article class="slds-card slds-card--narrow">
+    			<div class="slds-card__header"><img src="https://media.carphonewarehouse.com/is/image/cpw2/galaxy-s8BLACK?$xl-standard$"/></div>
+    			<div class="slds-card__body">Samsung Galaxy S8 - Midnight Black</div>
+    			<div class="slds-card__footer"><strong>$1199</strong></div>
+  			</article>
+		</div>
+		<div class="slds-m-around--small slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12 ">
+			<article class="slds-card slds-card--narrow">
+    			<div class="slds-card__header"><img src="https://media.carphonewarehouse.com/is/image/cpw2/galaxy-s8BLACK?$xl-standard$"/></div>
+    			<div class="slds-card__body">Samsung Galaxy S8 - Midnight Black</div>
+    			<div class="slds-card__footer"><strong>$1199</strong></div>
+  			</article>
+		</div>
+		<div class="slds-m-around--small slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12 ">
+			<article class="slds-card slds-card--narrow">
+    			<div class="slds-card__header"><img src="https://media.carphonewarehouse.com/is/image/cpw2/galaxy-s8BLACK?$xl-standard$"/></div>
+    			<div class="slds-card__body">Samsung Galaxy S8 - Midnight Black</div>
+    			<div class="slds-card__footer"><strong>$1199</strong></div>
+  			</article>
+		</div>
+	</div>
+</aura:application>

@@ -1,0 +1,3 @@
+.THIS .slds-box{
+    min-height:150px;
+}

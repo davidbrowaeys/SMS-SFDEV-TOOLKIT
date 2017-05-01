@@ -1,0 +1,93 @@
+<aura:application extends="force:slds">
+	<!--HEADER FOR RECORD LAYOUT-->
+	<div class="slds-page-header">
+		<div class="slds-grid">
+			<div class="slds-col slds-has-flexi-truncate">
+				<div class="slds-media slds-no-space slds-grow">
+					<div class="slds-media__figure">
+						<c:svgIcon  svgPath="/img/slds-icons/v7.6.0/standard-sprite/svg/symbols.svg#user" 
+						            category="standard" 
+                                   	class="slds-icon-standard-user" 
+						            size="medium" 
+						            name="user"/>
+					</div>
+					<div class="slds-media__body">
+				  		<p class="slds-text-title--caps slds-line-height--reset">Record Type</p>
+				  		<h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="this should match the Record Title">Record Title</h1>
+					</div>
+			  	</div>
+			</div>
+			<div class="slds-col slds-no-flex slds-grid slds-align-top">
+			  	<div class="slds-button-group" role="group">
+					<button class="slds-button slds-button--neutral">Edit</button>
+					<button class="slds-button slds-button--neutral">Delete</button>
+					<button class="slds-button slds-button--neutral">Clone</button>
+					<div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-button--last" aria-expanded="false">
+						<button class="slds-button slds-button--icon-border-filled" aria-haspopup="true" title="More Actions">
+							<c:svgIcon 	svgPath="/img/slds-icons/v7.6.0/utility-sprite/svg/symbols.svg#down" 
+										category="utility" 
+										class="slds-button__icon" 
+										containerClass="slds-button slds-button--icon-border-filled" 
+										size="small" 
+										name="down" 
+										assistiveText="More Actions"/>
+						</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+		<ul class="slds-grid slds-page-header__detail-row">
+			<li class="slds-page-header__detail-block">
+			  <p class="slds-text-title slds-truncate slds-m-bottom--xx-small" title="Field 1">Field 1</p>
+			  <p class="slds-text-body--regular slds-truncate" title="Description that demonstrates truncation with a long text field">Description that demonstrates truncation with a long text field.</p>
+			</li>
+			<li class="slds-page-header__detail-block">
+			  	<p class="slds-text-title slds-truncate slds-m-bottom--xx-small" title="Field2 (3)">Field 2 (3)
+					<button class="slds-button slds-button--icon" aria-haspopup="true" title="More Actions">
+						<c:svgIcon svgPath="/img/slds-icons/v7.6.0/utility-sprite/svg/symbols.svg#down" category="utility" size="small" name="down" />
+						<span class="slds-assistive-text">More Actions</span>
+					</button>
+			  	</p>
+			  	<p class="slds-text-body--regular">Multiple Values</p>
+			</li>
+			<li class="slds-page-header__detail-block">
+				<p class="slds-text-title slds-truncate slds-m-bottom--xx-small" title="Field 3">Field 3</p><a href="javascript:void(0);">Hyperlink</a></li>
+			<li class="slds-page-header__detail-block">
+				<p class="slds-text-title slds-truncate slds-m-bottom--xx-small" title="Field 4">Field 4</p>
+				<p>
+					<span title="Description (2-line truncation—must use JS to truncate).">Description (2-line truncat...</span>
+			  	</p>
+			</li>
+		</ul>
+	</div>
+	<!--BODY-->
+	<div class="slds-grid slds-wrap slds-grid--pull-padded slds-grid--vertical-stretch">
+		<!-- MAIN CONTENT1 : use 1 third on of the screen-->
+		<div class="slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--4-of-12 slds-border--bottom slds-border--right">
+			<div class="slds-box slds-container--large slds-m-around--large">
+				FIRST ROW - LEFT
+			</div>
+			<div class="slds-box slds-container--large slds-m-around--large">
+				SECOND ROW - LEFT
+			</div>
+			<div class="slds-box slds-container--large slds-m-around--large">
+				THIRD ROW - LEFT
+			</div>
+		</div>
+		<!-- MAIN CONTENT2 : use 1 third on of the screen-->
+  		<div class="slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--4-of-12 slds-border--bottom slds-border--right">
+  			<div class="slds-box slds-container--medium slds-m-around--large">
+				FIRST ROW - CENTER
+			</div>
+  		</div>
+  		<!-- MAIN CONTENT3 : use 1 third on of the screen-->
+  		<div class="slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--4-of-12 slds-border--bottom">
+  			<div class="slds-box slds-container--medium slds-m-around--large">
+				FIRST ROW - RIGHT
+			</div>
+			<div class="slds-box slds-container--medium slds-m-around--large">
+				SECOND ROW - RIGHT
+			</div>
+  		</div>
+	</div>
+</aura:application>
