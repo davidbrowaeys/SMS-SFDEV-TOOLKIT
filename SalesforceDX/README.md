@@ -44,8 +44,10 @@ Push change: push local changes to scratch org<br/>
 Local files will be sync with org changes. <br/>
 	Check change status<br/>
 		```sfdx force:source:status```<br/>
+
 	Pull change: to get changes from org<br/>
 		```sfdx force:source:pull -u <username/alias>```<br/>
+
 	Push change: push local changes to org<br/>
 		```sfdx force:source:push -u <username/alias>```<br/>
 
@@ -55,12 +57,16 @@ This represents a full deployment<br/>
 Deploy :<br/>
 	Pull change: make sure you have all changes from scratch org<br/>
 		```sfdx force:source:pull -u <username/alias>```<br/>
+
 	Create output folder:<br/>
 		```mkdir mdapi_output_dir```<br/>
+
 	Convert  SFDX Project source to metadata<br/>
 		```sfdx force:source:convert -d mdapi_output_dir/ --packagename``` package_name<br/>
+
 	Deploy metadata to target org<br/>
 		```sfdx force:mdapi:deploy -d mdapi_output_dir/ -u "sandbox_username" -l RunSpecifiedTests -r test1,test2,test3,test4```<br/>
+
 	If the deployment job wait time is 1 minute or more, the status messages update every 30 seconds.
 	If too long, you can check status and ask to wait x minute by using "-w number", i.e.:<br/>
 		```sfdx force:mdapi:deploy -u "sandbox_username" -i 0AfB0000009SvyoKAC -w 5```<br/>
@@ -70,8 +76,10 @@ Deploy :<br/>
 --------------------------
 Run Test ASYNC:sfdx will return job id. <br/>
 	```sfdx force:apex:test:run -u <username/alias>```<br/>
+
 See Test Result : <br/>
 	```sfdx force:apex:test:report -i 7072800005SYWIq -u BRO1```<br/>
+
 Run Test SYNC:<br/>
 	```sfdx force:apex:test:run --resultformat human```<br/>
 
@@ -103,6 +111,5 @@ SFDX will generate a reference for all recorcid, i.e.: AccountRef1, ContactRef1,
         }
 ```<br/>
 Import account with contacts<br/>
- ```
- sfdx force:data:tree:import --targetusername sms-partner2 \
-    --plan sfdx-out/export-demo-Account-Contact-plan.json```
+ ```sfdx force:data:tree:import --targetusername sms-partner2 \
+    --plan sfdx-out/export-demo-Account-Contact-plan.json ```
