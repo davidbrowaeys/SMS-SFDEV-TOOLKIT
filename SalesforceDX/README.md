@@ -54,23 +54,22 @@ Local files will be sync with org changes. <br/>
 ## Deploy change to sandbox (non scratch org) ##
 --------------------------
 This represents a full deployment<br/>
-Deploy :<br/>
-	Pull change: make sure you have all changes from scratch org<br/>
-		```sfdx force:source:pull -u <username/alias>```
+Pull change: make sure you have all changes from scratch org<br/>
+	```sfdx force:source:pull -u <username/alias>```
 
-	Create output folder:<br/>
-		```mkdir mdapi_output_dir```
+Create output folder:<br/>
+	```mkdir mdapi_output_dir```
 
-	Convert  SFDX Project source to metadata<br/>
-		```sfdx force:source:convert -d mdapi_output_dir/ --packagename package_name```
+Convert  SFDX Project source to metadata<br/>
+	```sfdx force:source:convert -d mdapi_output_dir/ --packagename package_name```
 
-	Deploy metadata to target org<br/>
-		```sfdx force:mdapi:deploy -d mdapi_output_dir/ -u "sandbox_username" -l RunSpecifiedTests -r test1,test2,test3,test4```
+Deploy metadata to target org<br/>
+	```sfdx force:mdapi:deploy -d mdapi_output_dir/ -u "sandbox_username" -l RunSpecifiedTests -r test1,test2,test3,test4```
 
-	If the deployment job wait time is 1 minute or more, the status messages update every 30 seconds.
-	If too long, you can check status and ask to wait x minute by using "-w number", i.e.:<br/>
-		```sfdx force:mdapi:deploy -u "sandbox_username" -i 0AfB0000009SvyoKAC -w 5```<br/>
-	where 0AfB0000009SvyoKAC is the job id return with mdapi:deploy command. <br/>
+If the deployment job wait time is 1 minute or more, the status messages update every 30 seconds.
+If too long, you can check status and ask to wait x minute by using "-w number", i.e.:<br/>
+	```sfdx force:mdapi:deploy -u "sandbox_username" -i 0AfB0000009SvyoKAC -w 5```<br/>
+where 0AfB0000009SvyoKAC is the job id return with mdapi:deploy command. <br/>
 
 ## Manage test coverage ##
 --------------------------
@@ -88,7 +87,7 @@ Run Test SYNC:<br/>
 You can transfer data from one org to another org. This would be really helpful to setup master data from production to dev sandboxes.<br/>
 
 Make a simple query :<br/>
-	```sfdx force:data:soql:query -q "SELECT ID, Name, Status FROM ScratchOrgInfo WHERE CreatedBy.Name = '<your name>' AND CreatedDate = TODAY" -u <org alias>```<br/>
+	```sfdx force:data:soql:query -q "SELECT ID, Name, Status FROM ScratchOrgInfo WHERE CreatedBy.Name = '<your name>' AND CreatedDate = TODAY" -u <org alias>```
 
 Export accounts with contacts : <br/>
 	```sfdx force:data:tree:export --query \
@@ -96,7 +95,7 @@ Export accounts with contacts : <br/>
        (SELECT Id, FirstName, Lastname\
         FROM Contacts) \
        FROM Account" \
-     --prefix export-demo --outputdir sfdx-out --plan -u sms-partner```<br/>
+     --prefix export-demo --outputdir sfdx-out --plan -u sms-partner```
 
 SFDX will generate a reference for all recorcid, i.e.: AccountRef1, ContactRef1, ... So when exporting account and contact in same time, SFDX can maintain the relationship between both objects, example : 
 ```json
@@ -109,7 +108,8 @@ SFDX will generate a reference for all recorcid, i.e.: AccountRef1, ContactRef1,
             "LastName": "Llorrac",
             "AccountId": "@AccountRef12"
         }
-```<br/>
+```
+
 Import account with contacts<br/>
  ```sfdx force:data:tree:import --targetusername sms-partner2 \
     --plan sfdx-out/export-demo-Account-Contact-plan.json ```
