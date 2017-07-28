@@ -31,41 +31,41 @@ Retrieve metadata from an org(use mainly when retrieving metadata from different
 	```sfdx force:mdapi:retrieve -s -r ./mdapipkg -u <username> -p <package name>```<br/>
 
 Unzip file:<br/>
-	```unzip mdapipkg/unpackaged.zip```<br/>
+	```unzip mdapipkg/unpackaged.zip```
 
 Convert metadata API source to SFDX project<br/>
-	```sfdx force:mdapi:convert --rootdir unpackaged/```<br/>
+	```sfdx force:mdapi:convert --rootdir unpackaged/```
 
 Push change: push local changes to scratch org<br/>
-		```sfdx force:source:push -u <username/alias>```<br/>
+		```sfdx force:source:push -u <username/alias>```
 		
 ## Manage changes between scratch orgs ##
 --------------------------
 Local files will be sync with org changes. <br/>
 	Check change status<br/>
-		```sfdx force:source:status```<br/>
+		```sfdx force:source:status```
 
 	Pull change: to get changes from org<br/>
-		```sfdx force:source:pull -u <username/alias>```<br/>
+		```sfdx force:source:pull -u <username/alias>```
 
 	Push change: push local changes to org<br/>
-		```sfdx force:source:push -u <username/alias>```<br/>
+		```sfdx force:source:push -u <username/alias>```
 
 ## Deploy change to sandbox (non scratch org) ##
 --------------------------
 This represents a full deployment<br/>
 Deploy :<br/>
 	Pull change: make sure you have all changes from scratch org<br/>
-		```sfdx force:source:pull -u <username/alias>```<br/>
+		```sfdx force:source:pull -u <username/alias>```
 
 	Create output folder:<br/>
-		```mkdir mdapi_output_dir```<br/>
+		```mkdir mdapi_output_dir```
 
 	Convert  SFDX Project source to metadata<br/>
-		```sfdx force:source:convert -d mdapi_output_dir/ --packagename``` package_name<br/>
+		```sfdx force:source:convert -d mdapi_output_dir/ --packagename package_name```
 
 	Deploy metadata to target org<br/>
-		```sfdx force:mdapi:deploy -d mdapi_output_dir/ -u "sandbox_username" -l RunSpecifiedTests -r test1,test2,test3,test4```<br/>
+		```sfdx force:mdapi:deploy -d mdapi_output_dir/ -u "sandbox_username" -l RunSpecifiedTests -r test1,test2,test3,test4```
 
 	If the deployment job wait time is 1 minute or more, the status messages update every 30 seconds.
 	If too long, you can check status and ask to wait x minute by using "-w number", i.e.:<br/>
