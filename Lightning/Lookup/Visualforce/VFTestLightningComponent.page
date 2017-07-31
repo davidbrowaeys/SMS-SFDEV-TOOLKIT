@@ -2,7 +2,7 @@
     <apex:includeLightning />
     <div id="customLookup">Hello World</div>
     <h3>
-        Output:
+        Output: <span id="lkp_account"></span>
     </h3>
     <input type="hidden" id="lkp_accountId"/>
     <script>
@@ -19,6 +19,7 @@
                         "callback": function(fieldValue, fieldAPIName, sObjectAPIName){
                             console.log(fieldValue);
                             document.getElementById('lkp_accountId').value = fieldValue;
+                            document.getElementById('lkp_account').innerHTML = fieldValue;
                         }
                 	},"customLookup",function (cmp) {}
                );
