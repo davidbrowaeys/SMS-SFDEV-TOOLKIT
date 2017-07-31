@@ -1,0 +1,29 @@
+<apex:page >
+    <apex:includeLightning />
+    <div id="customLookup">Hello World</div>
+    <h3>
+        Output:
+    </h3>
+    <input type="hidden" id="lkp_accountId"/>
+    <script>
+    	var component;
+    	var initLookup=function (){
+            $Lightning.use("c:LookupApp", function () {
+                $Lightning.createComponent(
+                    "c:ObjectLookup", {
+                        "label":"Account", 
+                        "pluralLabel":"Accounts",
+                        "sObjectAPIName":"Account",
+                        "listIconSVGPath":"standard:account",
+                        "listIconClass":"slds-icon-standard-account",
+                        "callback": function(fieldValue, fieldAPIName, sObjectAPIName){
+                            console.log(fieldValue);
+                            document.getElementById('lkp_accountId').value = fieldValue;
+                        }
+                	},"customLookup",function (cmp) {}
+               );
+          });       
+        }
+        initLookup();
+    </script>
+</apex:page>

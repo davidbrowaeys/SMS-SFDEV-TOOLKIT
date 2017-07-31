@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="Despatched when a lookup has changed value" >
+  <aura:attribute name="fieldAPIName" type="String" description="Name of the field ie Account__c" access="global" />
+  <aura:attribute name="sObjectAPIName" type="String" required="true" description="The API name of the SObject that the field belongs to" access="global" />
+  <aura:attribute name="fieldValue" type="String" required="true" description="The value of the field" access="global" />
+</aura:event>

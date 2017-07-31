@@ -5,11 +5,7 @@
 			<div class="slds-col slds-has-flexi-truncate">
 				<div class="slds-media slds-no-space slds-grow">
 					<div class="slds-media__figure">
-						<c:svgIcon  svgPath="/img/slds-icons/v7.6.0/standard-sprite/svg/symbols.svg#user" 
-						            category="standard" 
-                                   	class="slds-icon-standard-user" 
-						            size="medium" 
-						            name="user"/>
+						<lightning:icon iconName="standard:user" size="medium" alternativeText="Object Icon" />
 					</div>
 					<div class="slds-media__body">
 				  		<p class="slds-text-title--caps slds-line-height--reset">Record Type</p>
@@ -22,17 +18,31 @@
 					<button class="slds-button slds-button--neutral">Edit</button>
 					<button class="slds-button slds-button--neutral">Delete</button>
 					<button class="slds-button slds-button--neutral">Clone</button>
-					<div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-button--last" aria-expanded="false">
-						<button class="slds-button slds-button--icon-border-filled" aria-haspopup="true" title="More Actions">
-							<c:svgIcon 	svgPath="/img/slds-icons/v7.6.0/utility-sprite/svg/symbols.svg#down" 
-										category="utility" 
-										class="slds-button__icon" 
-										containerClass="slds-button slds-button--icon-border-filled" 
-										size="small" 
-										name="down" 
-										assistiveText="More Actions"/>
-						</button>
-					</div>
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click slds-button_last slds-is-open">
+                        <button class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true" title="More Actions">
+                            <lightning:icon iconName="utility:down" class="slds-button__icon" size="x-small" alternativeText="More Actions" />
+                            <span class="slds-assistive-text">More Actions</span>
+                        </button>
+                        <div class="slds-dropdown slds-dropdown_right">
+                            <ul class="slds-dropdown__list" role="menu">
+                                <li class="slds-dropdown__item" role="presentation">
+                                    <a href="javascript:void(0);" role="menuitem" tabindex="0">
+                                        <span class="slds-truncate" title="Overflow Item One">Overflow Item One</span>
+                                    </a>
+                                </li>
+                                <li class="slds-dropdown__item" role="presentation">
+                                    <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                        <span class="slds-truncate" title="Overflow Item Two">Overflow Item Two</span>
+                                    </a>
+                                </li>
+                                <li class="slds-dropdown__item" role="presentation">
+                                    <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                        <span class="slds-truncate" title="Overflow Item Three">Overflow Item Three</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 			  	</div>
 			</div>
 		</div>
@@ -44,7 +54,7 @@
 			<li class="slds-page-header__detail-block">
 			  	<p class="slds-text-title slds-truncate slds-m-bottom--xx-small" title="Field2 (3)">Field 2 (3)
 					<button class="slds-button slds-button--icon" aria-haspopup="true" title="More Actions">
-						<c:svgIcon svgPath="/img/slds-icons/v7.6.0/utility-sprite/svg/symbols.svg#down" category="utility" size="small" name="down" />
+						<lightning:icon iconName="utility:down" class="slds-button__icon" size="x-small" alternativeText="More Actions" />
 						<span class="slds-assistive-text">More Actions</span>
 					</button>
 			  	</p>

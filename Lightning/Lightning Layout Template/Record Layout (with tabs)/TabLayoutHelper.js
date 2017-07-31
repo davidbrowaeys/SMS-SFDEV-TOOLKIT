@@ -1,6 +1,6 @@
 ({
     doInit : function(cmp) {
-        var self=this;
+        var self = this;
         $('.slds-tabs--scoped__link').click(function (ev) {
             $(this).parent().parent().find(".slds-tabs--scoped__item").removeClass("slds-active");
             //hide all tab contents
