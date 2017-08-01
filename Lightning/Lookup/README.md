@@ -39,27 +39,33 @@ initLookup();
 ## Use in Lightning ##
 1. Create Component
 ```xml
-<c:Lookup 	label="Account" 
-            pluralLabel="Accounts" 
-            sObjectAPIName="Account" 
-            listIconSVGPath="standard:account" 
-            listIconClass="slds-icon-standard-account" 
-            lookupChangeEvent="{!c.handleObjectIdUpdate}"/>
+<c:Lookup 
+	label="Account" 
+	pluralLabel="Accounts" 
+	sObjectAPIName="Account" 
+	listIconSVGPath="standard:account" 
+	listIconClass="slds-icon-standard-account" 
+	lookupChangeEvent="{!c.handleObjectIdUpdate}"/>
 ```
 2. Create Controller
 ```javascript
-handleObjectIdUpdate : function(cmp, event, helper) {
-        // Get the Id from the Event
-        var fieldValue = event.getParam("fieldValue");
+({
+    /**
+     * Handler for receiving the lookupchange event
+     */
+	handleObjectIdUpdate : function(cmp, event, helper) {
+		// Get the Id from the Event
+		var fieldValue = event.getParam("fieldValue");
 		var fieldAPIName = event.getParam("fieldAPIName");
-        var sObjectAPIName = event.getParam("sObjectAPIName");
+		var sObjectAPIName = event.getParam("sObjectAPIName");
 
- 		//display record id
-        console.log(fieldValue);
+			//display record id
+		console.log(fieldValue);
 
-        // Set the Id bound to the View
-        cmp.set('v.recordId', fieldValue);
-    }
+		// Set the Id bound to the View
+		cmp.set('v.recordId', fieldValue);
+	}
+})
 ```
 <img src="https://github.com/davidbrowaeys/SMS-SFDEV-TOOLKIT/blob/master/Lightning/Lookup/sms_lightning_lookup.gif"/>
 
