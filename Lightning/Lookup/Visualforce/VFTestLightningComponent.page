@@ -1,16 +1,22 @@
 <apex:page >
     <apex:includeLightning />
-    <div id="customLookup">Hello World</div>
+    <div style="padding: 10px;">
+        <img src="http://www.smsmt.com/hs-fs/hubfs/SMS_Logo-1.png?t=1490163156935&amp;width=300&amp;name=SMS_Logo-1.png" width="200px"/>
+    </div>
+    <h2>
+        SMS Lightning Lookup Demo
+    </h2>
+    <div id="customLookup"></div>
     <h3>
-        Output: <span id="lkp_account"></span>
+        Record ID: <span id="lkp_account"></span>
     </h3>
     <input type="hidden" id="lkp_accountId"/>
     <script>
-    	var component;
-    	var initLookup=function (){
+        var component;
+        var initLookup=function (){
             $Lightning.use("c:LookupApp", function () {
                 $Lightning.createComponent(
-                    "c:ObjectLookup", {
+                    "c:Lookup", {
                         "label":"Account", 
                         "pluralLabel":"Accounts",
                         "sObjectAPIName":"Account",
@@ -21,7 +27,7 @@
                             document.getElementById('lkp_accountId').value = fieldValue;
                             document.getElementById('lkp_account').innerHTML = fieldValue;
                         }
-                	},"customLookup",function (cmp) {}
+                    },"customLookup",function (cmp) {}
                );
           });       
         }

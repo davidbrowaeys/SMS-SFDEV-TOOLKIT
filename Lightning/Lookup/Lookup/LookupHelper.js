@@ -107,8 +107,10 @@
 
     var compEvent = cmp.getEvent("lookupChangeEvent");
     compEvent.setParams({ "fieldAPIName": cmp.get('v.lookupAPIName'),  "sObjectAPIName": cmp.get('v.sObjectAPIName'),  "fieldValue": objectId });
-	console.log('Fire selection...');
     compEvent.fire();
+    //handle callback for visualforce
+    var selectionCallback = cmp.get('v.callback');
+    if(selectionCallback) selectionCallback(objectId, cmp.get('v.lookupAPIName'), cmp.get('v.sObjectAPIName'));
 
     var mainLookupDiv = cmp.find('lookup-div');
     $A.util.removeClass(mainLookupDiv, 'slds-is-open');

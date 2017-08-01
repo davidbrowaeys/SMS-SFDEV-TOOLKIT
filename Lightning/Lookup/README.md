@@ -5,3 +5,13 @@
 # Lightning Lookup #
 This is a fully working lighning LOOKUP component that you can reuse in VISUALFORCE or LIGHTNING COMPONENT! 
 
+## 1. Create Event ##
+## 2. Create Apex Class ##
+## 3. Create Lookup Component ##
+## 4. Create Lightning App (only applicable to embed lightning component in visualforce) ##
+
+<img src="https://github.com/davidbrowaeys/SMS-SFDEV-TOOLKIT/blob/master/Lightning/Lookup/sms_lightning_lookup.gif"/>
+
+
+
+
