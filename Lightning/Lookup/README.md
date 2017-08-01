@@ -6,13 +6,14 @@
 This is a fully working lighning LOOKUP component that you can reuse in VISUALFORCE or LIGHTNING COMPONENT! 
 
 ## Installation ##
-1. Create Event
+1. <b>Create Event</b><br/>
 This is required to communicate change between components. 
-2. Create Apex Class
+2. <b>Create Apex Class</b><br/>
 Allow component to communicate with data and perform SOSL
-3. Create Lookup Component
+3. <b>Create Lookup Component</b><br/>
 Our beautiful main lookup component, this include controller.js and helper.js
-4. Create Lightning App, VisualforceLightningApp (only applicable to embed lightning component in visualforce) ##
+4. <b>Create Lightning App (VisualforceLightningApp)</b><br/>
+Only applicable to embed lightning component in visualforce)
 
 ## Use in Visualforce ##
 ```javascript
