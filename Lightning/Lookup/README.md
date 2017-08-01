@@ -7,15 +7,25 @@ This is a fully working lighning LOOKUP component that you can reuse in VISUALFO
 
 ## Installation ##
 1. <b>Create Event</b><br/>
-This is required to communicate change between components. 
+This is required to communicate change between lightning components. 
 2. <b>Create Apex Class</b><br/>
-Allow component to communicate with data and perform SOSL
+Allow component to communicate with database and perform SOSL
 3. <b>Create Lookup Component</b><br/>
 Our beautiful main lookup component, this include controller.js and helper.js
 4. <b>Create Lightning App (VisualforceLightningApp)</b><br/>
-Only applicable to embed lightning component in visualforce)
+Only applicable to embed lightning component in Visualforce pages, more info <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/components_visualforce.htm">here</a>
 
 ## Use in Visualforce ##
+1. Allow VF to embed lightning
+```xml
+<apex:includeLightning />
+```
+2. Add the lightning component container
+```xml
+    <div id="customLookup"></div>
+    <input type="hidden" id="lkp_accountId"/>
+```
+3. Create lightning component
 ```javascript
 var initLookup=function (){
     $Lightning.use("c:VisualforceLightningApp", function () {
