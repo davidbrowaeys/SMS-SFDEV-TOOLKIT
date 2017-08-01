@@ -17,9 +17,9 @@ Our beautiful main lookup component, this include controller.js and helper.js
 ## Use in Visualforce ##
 ```javascript
 var initLookup=function (){
-    $Lightning.use("c:LookupApp", function () {
+    $Lightning.use("c:VisualforceLightningApp", function () {
         $Lightning.createComponent(
-            "c:VisualforceLightningApp.app", {
+            "c:Lookup", {
                 "label":"Account", 
                 "pluralLabel":"Accounts",
                 "sObjectAPIName":"Account",
