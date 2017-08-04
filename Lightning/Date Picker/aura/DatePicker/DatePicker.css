@@ -1,0 +1,17 @@
+.THIS thead {
+    background-color: #f0f1f2;
+    border-bottom: 1px solid #f0f1f2;
+}
+
+.THIS .spear-select {
+  height:2.125rem!important;
+}
+
+.THIS.slds-transition-hide {
+    transition: opacity .5s;
+}
+
+.THIS a.no-focus:focus {
+  outline: none !important;
+  box-shadow: none;
+}

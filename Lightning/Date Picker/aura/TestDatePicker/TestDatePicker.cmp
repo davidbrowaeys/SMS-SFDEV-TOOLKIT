@@ -1,0 +1,6 @@
+<aura:component >
+    <aura:attribute name="callback" type="String" description="Call this to communcate results to parent" access="global" />
+    <aura:attribute name="dateFormat" type="String" description="Date Format" access="global" />
+    <aura:attribute name="dateFieldLabel" type="String" description="Date Field Label" access="global" />
+    <c:DatePicker aura:id="closeDate" label="{!v.dateFieldLabel}" placeholder="Enter a Date" value="" formatSpecifier="{!v.dateFormat}" dateChangeEvent="{!c.handleDateChange}" />
+</aura:component>

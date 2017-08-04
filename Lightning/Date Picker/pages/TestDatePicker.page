@@ -1,0 +1,16 @@
+<apex:page showHeader="false" sidebar="false">
+  <apex:includeLightning />  
+  <div id="dateDiv" style="width:20%;position:absolute"/>
+    <script>
+    $Lightning.use("c:TestDatePickerApp", function () {
+        $Lightning.createComponent("c:TestDatePicker", 
+                                   {"callback": function(val){
+                                       alert("Visualforce Page has recieved this value: " + val);
+                                   },
+                                    "dateFieldLabel":"Close Date",
+                                    "dateFormat":"dd/MM/YYYY"},
+                                   "dateDiv", 
+                                   function (cmp) {});
+    });
+    </script>
+ </apex:page>
